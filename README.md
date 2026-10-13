@@ -4,7 +4,13 @@ A web app for the EscrowGuard Intelligent Contract on GenLayer Studionet. A clie
 
 **Live app:** https://ezenwa2003.github.io/escrow-guard-app/
 
-**Contract source:** https://github.com/ezenwa2003/escrow-guard (`escrow_guard.py`)
+**Contract source:** `escrow_guard.py` in this repo. This is the deployed EscrowGuard Intelligent Contract. The same file is also at https://github.com/ezenwa2003/escrow-guard
+
+## Deploy your own escrow
+
+1. Open GenLayer Studio and create a new file. Paste in `escrow_guard.py`.
+2. Click **Deploy new instance** and fill in `client` (a wallet address), `freelancer` (a wallet address) and `job_terms` (what the job is). Use the same address for both to test alone.
+3. Copy the new contract address and paste it into the app.
 
 ## Try it without a wallet
 
