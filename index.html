@@ -10,6 +10,7 @@
 <style>
 :root{--indigo:#1B1F4B;--ink:#14163A;--gold:#F2B600;--mist:#E9EEF5;--green:#12805C;--rose:#C72B5B;--soft:#5A6086;--pale:#C9CDF2}
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{margin:0;background:var(--mist);color:var(--ink);font:17px/1.55 Figtree,sans-serif}
 .in{max-width:900px;margin:0 auto}
 .hero{background:var(--indigo);color:#fff;padding:22px 20px 52px}
@@ -140,7 +141,7 @@ const ST = ['AWAITING_FUNDS', 'FUNDED', 'DELIVERED', 'DISPUTED', 'SETTLED'];
 
 function render() {
   if (!data) return;
-  $('how').hidden = false; $('how').hidden = true; $('case').hidden = false;
+  $('how').hidden = true; $('case').hidden = false;
   const s = data.stage, i = ST.indexOf(s);
   const isC = me && lc(me) === lc(data.client), isF = me && lc(me) === lc(data.freelancer);
   setCoin(i);
