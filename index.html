@@ -83,7 +83,7 @@ textarea{min-height:84px;resize:vertical}
     <div id="ruling"></div>
   </div>
 </div></main>
-<footer class="ver">EscrowGuard app v2 on GenLayer Studionet</footer>
+<footer class="ver">EscrowGuard app v3 on GenLayer Studionet</footer>
 
 <script type="module">
 import { createClient } from 'https://esm.sh/genlayer-js';
@@ -109,7 +109,11 @@ async function connect() {
   const accts = await window.ethereum.request({ method: 'eth_requestAccounts' });
   me = accts[0];
   writeClient = createClient({ chain: studionet, account: me, provider: window.ethereum });
-  await writeClient.connect('studionet');
+  const hex = '0x' + studionet.id.toString(16);
+  try { await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: hex }] }); }
+  catch (e) {
+    await window.ethereum.request({ method: 'wallet_addEthereumChain', params: [{ chainId: hex, chainName: studionet.name, nativeCurrency: studionet.nativeCurrency, rpcUrls: studionet.rpcUrls.default.http }] });
+  }
   $('wallet').textContent = short(me);
   render();
 }
